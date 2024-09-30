@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Test;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTestRequest;
 use App\Http\Requests\UpdateTestRequest;
 
@@ -13,7 +14,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        //
+        return Test::all();
     }
 
     /**
