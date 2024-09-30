@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Test;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\TestResource;
 use App\Http\Requests\StoreTestRequest;
 use App\Http\Requests\UpdateTestRequest;
+use Illuminate\Console\View\Components\Task;
 
 class TestController extends Controller
 {
@@ -14,7 +16,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        return Test::all();
+        return TestResource::collection(Test::all());
     }
 
     /**
@@ -38,7 +40,7 @@ class TestController extends Controller
      */
     public function show(Test $test)
     {
-        //
+        return TestResource::make($test);
     }
 
     /**
